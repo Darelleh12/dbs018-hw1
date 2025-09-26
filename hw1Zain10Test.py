@@ -258,8 +258,7 @@ def main():
 
     cur.close() 
     conn.close()
-
-    checkdb.py
+    
     # Sort by table name and compute DB summaries:contentReference[oaicite:12]{index=12} 
     rows_for_output.sort(key=lambda x: x[0].lower()) 
     db_ri = "Y" if all(r[1] == "Y" for r in rows_for_output) else "N" 
