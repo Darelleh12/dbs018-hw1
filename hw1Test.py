@@ -1,4 +1,3 @@
-#Thought the select(cursor) is not necessary for problem, but just in case it is I'm doing my coding here
 # Import the psycopg2 (Python driver that connects to psql)
 import psycopg2
 # Import your psql credentials from the python file db_config.py
@@ -29,6 +28,18 @@ try:
     
     # Create a new database session and return a cursor object
     cursor = connection.cursor()
+
+    # Execute an SQL query to fetch data from table T0
+    cursor.execute("SELECT * FROM T0;")
+    
+    # Fetch all rows from the cursor into a list
+    rows = cursor.fetchall()
+    
+    # Display fetched rows
+    print("Fetched rows:")
+    for row in rows:
+        col1, col2, col3 = row 
+        print(f"col1: {col1}, col2: {col2}, col3: {col3}")
     
 
 # Print any errors that occured trying to establish connection or execute a query
