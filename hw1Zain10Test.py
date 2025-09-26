@@ -3,7 +3,7 @@ import psycopg2
 from db_config import DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD 
 
 # ---------- helpers for SQL logging ---------- 
-SQL_LOG_PATH = "checkdb.sql" 
+SQL_LOG_PATH = "queries.sql" 
 def log_sql(header, sql): 
     with open(SQL_LOG_PATH, "a", encoding="utf-8") as f: 
         f.write(f"\n-- {header}\n") 
@@ -233,7 +233,7 @@ def main():
             print("No valid tables parsed from input file.") 
             sys.exit(1) 
             
-    out_path = f"refintnorm-{os.path.basename(schema_path)}" 
+    out_path = "output.txt" 
     rows_for_output = []
 
     try: 
@@ -266,6 +266,7 @@ def main():
     
     # Write output in your exact format 
     with open(out_path, "a", encoding="utf-8") as f: 
+        f.write("\n" + "-"*50 + "\n")
         f.write("referential integrity normalized\n") 
         for tname, ri, norm in rows_for_output: 
             f.write(f"{tname}\t\t{ri}\t\t{norm}\n") 
