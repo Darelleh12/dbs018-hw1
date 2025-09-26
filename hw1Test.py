@@ -41,7 +41,6 @@ try:
         col1, col2, col3 = row 
         print(f"col1: {col1}, col2: {col2}, col3: {col3}")
     
-
 # Print any errors that occured trying to establish connection or execute a query
 except Exception as e:
     print(f"An error occurred: {e}")
@@ -56,3 +55,40 @@ finally:
     # Close the connection to free up resources
     if connection:
         connection.close()
+
+with open(input_file, 'r') as file:
+    line = file.readline()
+    all_strings = []
+    while line:
+        # Remove any whitespace or newline characters
+        line = line.strip()
+
+        # Skip empty lines
+        if line:
+            # Split the line using the delimiter
+            parts = line.split(delimiter)
+            
+            # Optional: Strip whitespace from each part
+            parts = [part.strip() for part in parts]
+            
+            # Add to the main list
+            all_strings.extend(parts)
+
+        # Read next line
+        line = file.readline()
+
+def ourOutput(connection) {
+
+}
+
+def main() {
+    connection = psycopg2.connect(
+        host=DB_HOST,
+        port=DB_PORT,
+        database=DB_NAME,
+        user=DB_USER,
+        password=DB_PASSWORD
+    )
+
+    
+}
