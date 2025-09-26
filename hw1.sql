@@ -1,0 +1,1 @@
+-- Place to store Hw1 queries
