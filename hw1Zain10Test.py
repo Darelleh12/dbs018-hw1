@@ -265,7 +265,7 @@ def main():
     db_norm = "Y" if all(r[2] == "Y" for r in rows_for_output) else "N" 
     
     # Write output in your exact format 
-    with open(out_path, "w", encoding="utf-8") as f: 
+    with open(out_path, "a", encoding="utf-8") as f: 
         f.write("referential integrity normalized\n") 
         for tname, ri, norm in rows_for_output: 
             f.write(f"{tname}\t\t{ri}\t\t{norm}\n") 
